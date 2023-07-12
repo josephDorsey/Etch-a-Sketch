@@ -9,14 +9,16 @@
   <body>
     <h1>Etch-a-Sketch</h1>
     <div class="adjust-input-container">
+      <label class="label-input-range">16x16</label>
       <input
+        type="range"
+        value="16"
+        min="16"
         class="adjust-input"
-        placeholder="Enter desired grid size?"
-        type="number"
         max="100"
+        step="8"
       />
-      <button class="adjust-grid">Adjust Grid</button>
-      <button class="reset">Reset</button>
+      <button class="erase">Erase</button>
     </div>
     <div class="sketch-container"></div>
 
