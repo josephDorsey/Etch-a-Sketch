@@ -4,13 +4,24 @@ const container = document.querySelector(".sketch-container");
 const erase = document.querySelector(".erase");
 const labelInputRange = document.querySelector(".label-input-range");
 const adjustInput = document.querySelector(".adjust-input");
+const inputRandomRBG = document.querySelector(".input-random-rbg");
 for (let i = 0; i < 256; i++) {
   let html = `<div class="box" name="box"></div>`;
   container.insertAdjacentHTML("afterbegin", html);
 }
 
+function randomRGB(min, max) {
+  return min + Math.floor(Math.random() * (max - min + 1));
+}
 container.addEventListener("mouseover", (e) => {
-  if (e.target.classList.contains("box")) {
+  if (inputRandomRBG.checked && e.target.classList.contains("box")) {
+    const r = randomRGB(0, 255);
+    const g = randomRGB(0, 255);
+    const b = randomRGB(0, 255);
+    const rgb = `rgb(${r},${g},${b})`;
+    e.target.style.backgroundColor = rgb;
+  }
+  if (!inputRandomRBG.checked && e.target.classList.contains("box")) {
     e.target.classList.add("active");
   }
 });
