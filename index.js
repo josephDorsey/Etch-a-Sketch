@@ -3,7 +3,7 @@
 const container = document.querySelector(".sketch-container");
 const reset = document.querySelector(".reset");
 const btnAdjustGridSize = document.querySelector(".adjust-grid");
-const columnInput = document.querySelector(".column-input");
+const adjustInput = document.querySelector(".adjust-input");
 const rowInput = document.querySelector(".row-input");
 for (let i = 0; i < 256; i++) {
   let html = `<div class="box" name="box"></div>`;
@@ -24,9 +24,9 @@ reset.addEventListener("click", () => {
   }
 });
 
-function makeGrid(row, col) {
-  container.style.gridTemplateColumns = `repeat (${col}, 1fr)`;
-  container.style.gridTemplateRows = `repeat (${row}, 1fr)`;
+function makeGrid(input) {
+  container.style.gridTemplateColumns = `repeat (${input}, 1fr)`;
+  container.style.gridTemplateRows = `repeat (${input}, 1fr)`;
   let grid = row * col;
   for (let i = 0; i < grid; i++) {
     let html = `<div class="box" name="box"></div>`;
@@ -36,5 +36,5 @@ function makeGrid(row, col) {
 
 btnAdjustGridSize.addEventListener("click", () => {
   container.innerHTML = "";
-  makeGrid(Number(rowInput.value), Number(columnInput.value));
+  makeGrid(Number(adjustInput.value));
 });
