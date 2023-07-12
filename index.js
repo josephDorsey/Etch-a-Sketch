@@ -11,7 +11,7 @@ for (let i = 0; i < 256; i++) {
 }
 
 container.addEventListener("mouseover", (e) => {
-  if (e.target.className === "box") {
+  if (e.target.classList.contains("box")) {
     e.target.classList.add("active");
   }
 });
