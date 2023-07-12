@@ -1,8 +1,8 @@
 "use strict";
 
 const container = document.querySelector(".sketch-container");
-const reset = document.querySelector(".reset");
-const btnAdjustGridSize = document.querySelector(".adjust-grid");
+const erase = document.querySelector(".erase");
+const labelInputRange = document.querySelector(".label-input-range");
 const adjustInput = document.querySelector(".adjust-input");
 for (let i = 0; i < 256; i++) {
   let html = `<div class="box" name="box"></div>`;
@@ -15,12 +15,10 @@ container.addEventListener("mouseover", (e) => {
   }
 });
 
-reset.addEventListener("click", () => {
+erase.addEventListener("click", () => {
   container.innerHTML = "";
-  for (let i = 0; i < 256; i++) {
-    let html = `<div class="box" name="box"></div>`;
-    container.insertAdjacentHTML("afterbegin", html);
-  }
+  let input = adjustInput.value;
+  makeGrid(input);
 });
 
 function makeGrid(input) {
@@ -33,7 +31,9 @@ function makeGrid(input) {
   }
 }
 
-btnAdjustGridSize.addEventListener("click", () => {
+adjustInput.addEventListener("change", () => {
+  let input = adjustInput.value;
   container.innerHTML = "";
-  makeGrid(adjustInput.value);
+  labelInputRange.textContent = `${input}x${input}`;
+  makeGrid(Number(input));
 });
