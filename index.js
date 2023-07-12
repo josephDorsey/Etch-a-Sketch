@@ -24,8 +24,8 @@ reset.addEventListener("click", () => {
 });
 
 function makeGrid(input) {
-  container.style.gridTemplateColumns = `repeat (${input}, 1fr)`;
-  container.style.gridTemplateRows = `repeat (${input}, 1fr)`;
+  container.style.gridTemplateColumns = `repeat(${input}, 1fr)`;
+  container.style.gridTemplateRows = `repeat(${input}, 1fr)`;
   let grid = input * input;
   for (let i = 0; i < grid; i++) {
     let html = `<div class="box" name="box"></div>`;
