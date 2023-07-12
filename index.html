@@ -7,15 +7,19 @@
     <title>Etch-a-Sketch</title>
   </head>
   <body>
+    <h1>Etch-a-Sketch</h1>
+    <div class="adjust-input-container">
+      <input
+        class="adjust-input"
+        placeholder="Enter desired grid size?"
+        type="number"
+        max="100"
+      />
+      <button class="adjust-grid">Adjust Grid</button>
+      <button class="reset">Reset</button>
+    </div>
     <div class="sketch-container"></div>
-    <input
-      class="adjust-input"
-      placeholder="Enter desired grid size?"
-      type="number"
-      max="100"
-    />
-    <button class="adjust-grid">Adjust Grid</button>
-    <button class="reset">Reset</button>
+
     <script src="index.js"></script>
   </body>
 </html>
